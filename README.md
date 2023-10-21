@@ -53,3 +53,46 @@ pnpm安装指令： npm i -g pnpm
 运行程序：pnpm run dev
 
 
+## 项目配置
+eslint配置
+Eslint 目标是提供一个插件化的js代码检测工具
+1.安装eslint
+pnpm i eslint -D
+
+生成配置文件：eslintrc.cjs
+npx eslint --init
+
+.eslint.cjs配置文件
+```
+
+```
+
+
+vue3环境代码校验插件
+
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.10.0",
+
+  安装指令
+  ```
+  pnpm install -D eslint-plugin-import  eslint-plugin-vue  eslint-plugin-node eslint-plugin-prettier eslint-config-prettier eslint-plugin-node @babel/eslint-parser
+  ```
+
+  修改.eslintrc.cjs配置文件
+  ```
+
+  ```
+
+  eslintignore忽略文件
+  ```
+  dist
+  node_modules
+  ```
+
+  运行脚本
+  package.json新增两个运行脚本
+  
