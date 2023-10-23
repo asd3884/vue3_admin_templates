@@ -17,23 +17,17 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-
-
 window环境下升级node版本
 https://juejin.cn/post/6844904168096808968
-主要步骤：
-1.查看当前node及npm的版本
-    node -v和npm -v
-2.如果已经安装过node，需要升级版本
+主要步骤：1.查看当前node及npm的版本
+node -v和npm -v 2.如果已经安装过node，需要升级版本
 
 #升级npm的版本
-  npm install -g npm  或者 npm install npm -g    /*升级到最新版本*/
-  npm install npm@latest -g    /*升级到最新版本*/
-  npm install npm@4.1.2 -g    /*升级到指定版本*/
+npm install -g npm 或者 npm install npm -g /_升级到最新版本_/
+npm install npm@latest -g /_升级到最新版本_/
+npm install npm@4.1.2 -g /_升级到指定版本_/
 
-#升级node版本
-1.使用命令where node 查看node的安装路径
-
+#升级node版本1.使用命令where node 查看node的安装路径
 
 2.在node官网下载新版本node的 msi 安装包，然后覆盖安装之前的版本来完成更新操作
 
@@ -52,21 +46,20 @@ pnpm安装指令： npm i -g pnpm
 
 运行程序：pnpm run dev
 
-
 ## 项目配置
+
 eslint配置
-Eslint 目标是提供一个插件化的js代码检测工具
-1.安装eslint
+Eslint 目标是提供一个插件化的js代码检测工具1.安装eslint
 pnpm i eslint -D
 
 生成配置文件：eslintrc.cjs
 npx eslint --init
 
 .eslint.cjs配置文件
-```
 
 ```
 
+```
 
 vue3环境代码校验插件
 
@@ -77,38 +70,42 @@ vue3环境代码校验插件
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.10.0",
 
-  安装指令
-  ```
-  pnpm install -D eslint-plugin-import  eslint-plugin-vue  eslint-plugin-node eslint-plugin-prettier eslint-config-prettier eslint-plugin-node @babel/eslint-parser
-  ```
+安装指令
 
-  修改.eslintrc.cjs配置文件
-  ```
+```
+pnpm install -D eslint-plugin-import  eslint-plugin-vue  eslint-plugin-node eslint-plugin-prettier eslint-config-prettier eslint-plugin-node @babel/eslint-parser
+```
 
-  ```
+修改.eslintrc.cjs配置文件
 
-  eslintignore忽略文件
-  ```
-  dist
-  node_modules
-  ```
+```
 
-  运行脚本
-  package.json新增两个运行脚本
+```
 
-  ```
-  "scripts": {
-    "lint": "eslint src",
-    "fix": "eslint src --fix",
+eslintignore忽略文件
+
+```
+dist
+node_modules
+```
+
+运行脚本
+package.json新增两个运行脚本
+
+```
+"scripts": {
+  "lint": "eslint src",
+  "fix": "eslint src --fix",
 }
-  ```
+```
 
- ## 配置**prettier**
- 1安装依赖包
+## 配置**prettier**
+
+1安装依赖包
+
 ```
 pnpm install -D eslint-plugin-prettier prettier eslint-config-prettier
 ```
-  
 
 prettierrc.json添加规则
 
@@ -135,7 +132,6 @@ prettierignore忽略文件
 **/*.sh
 /public/*
 ```
-
 
 配置stylelint
 
