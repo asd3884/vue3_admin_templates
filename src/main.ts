@@ -12,6 +12,13 @@ import gloalComponent from '@/components'
 //@ts-ignore忽略当前文件ts类型的检测否则有红色提示(打包会失败)
 
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+
+//引入路由
+import router from './router'
+
+//引入仓库
+import pinia from './store'
+
 //获取应用实例对象
 const app = createApp(App)
 
@@ -22,5 +29,10 @@ app.use(ElementPlus, {
 //安装自定义插件
 app.use(gloalComponent)
 
+//注册模板路由
+app.use(router)
+
+//注册仓库
+app.use(pinia)
 //将应用挂载到挂载点上
 app.mount('#app')

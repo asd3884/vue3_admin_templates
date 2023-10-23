@@ -140,3 +140,126 @@ prettierignore忽略文件
 ```
 pnpm add sass sass-loader stylelint postcss postcss-scss postcss-html stylelint-config-prettier stylelint-config-recess-order stylelint-config-recommended-scss stylelint-config-standard stylelint-config-standard-vue stylelint-scss stylelint-order stylelint-config-standard-scss -D
 ```
+
+#查看本地分支：
+git branch
+
+#查看远程分支：
+git branch -r
+
+#创建并切换分支dev-v2
+git checkout -b 'dev-v2' 
+
+#创建远程分支
+git push origin 'dev-v2' 
+
+
+# 1.路由配置
+
+1.安装路由依赖 vue-router
+pnpm install vue-router
+
+路由分析：目前项目中必须要的路由有：login登录，home首页，404页面
+
+2.在项目的src根路径下创建views文件夹 放置路由文件
+views/Login/index.vue
+views/Home/index.vue
+views/404/index.vue
+
+3.创建路由管理
+在src根路径下创建router文件夹
+分别创建 router/index.ts、 router/routes.ts
+
+
+//router/index.ts
+```
+//通过vue-router插件实现模板路由配置
+import { createRouter, createWebHashHistory } from 'vue-router'
+import { constantRoute } from './routes'
+
+//创建路由器
+const router = createRouter({
+  //路由模式：hash
+  history: createWebHashHistory(),
+  routes: constantRoute,
+  //滚动行为
+  scrollBehavior() {
+    return {
+      left: 0,
+      top: 0,
+    }
+  },
+})
+export default router
+
+```
+
+//router/routes.ts
+```
+//对外暴露配置路由
+export const constantRoute = [
+  {
+    path: '/login',
+    component: () => import('@/views/Login/index.vue'),
+    name: 'login', //命名路由
+  },
+  {
+    path: '/',
+    component: () => import('@/views/Home/index.vue'),
+    name: 'layout',
+  },
+  {
+    path: '/404',
+    component: () => import('@/views/404/index.vue'),
+    name: '404',
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/404',
+    name: 'Any',
+  },
+]
+
+```
+
+4.在入口文件中注册路由插件
+main.ts中：
+```
+//引入路由
+import router from './router'
+
+//注册模板路由
+app.use(router)
+```
+
+5.在App跟组件中测试路由
+ <!--路由测试-->
+    <router-view></router-view>
+
+
+## login登录页面实现
+
+## 状态管理使用pinia
+pnpm i pinia
+
+1.在src根目录下创建store文件夹
+分别创建store/index.ts  ---大仓库
+store/modules/user.ts   ----用户模块相关的小仓库
+
+
+store/index.ts
+```
+//仓库大仓库
+import { createPinia } from 'pinia'
+//创建大仓库
+const pinia = createPinia()
+//对外暴露：入口文件需要安装仓库
+export default pinia
+
+```
+
+
+## login登录接口
+
+
+
