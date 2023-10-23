@@ -95,4 +95,52 @@ vue3环境代码校验插件
 
   运行脚本
   package.json新增两个运行脚本
+
+  ```
+  "scripts": {
+    "lint": "eslint src",
+    "fix": "eslint src --fix",
+}
+  ```
+
+ ## 配置**prettier**
+ 1安装依赖包
+```
+pnpm install -D eslint-plugin-prettier prettier eslint-config-prettier
+```
   
+
+prettierrc.json添加规则
+
+```
+{
+  "singleQuote": true,
+  "semi": false,
+  "bracketSpacing": true,
+  "htmlWhitespaceSensitivity": "ignore",
+  "endOfLine": "auto",
+  "trailingComma": "all",
+  "tabWidth": 2
+}
+```
+
+prettierignore忽略文件
+
+```
+/dist/*
+/html/*
+.local
+/node_modules/**
+**/*.svg
+**/*.sh
+/public/*
+```
+
+
+配置stylelint
+
+我们的项目中使用scss作为预处理器，安装以下依赖：
+
+```
+pnpm add sass sass-loader stylelint postcss postcss-scss postcss-html stylelint-config-prettier stylelint-config-recess-order stylelint-config-recommended-scss stylelint-config-standard stylelint-config-standard-vue stylelint-scss stylelint-order stylelint-config-standard-scss -D
+```
