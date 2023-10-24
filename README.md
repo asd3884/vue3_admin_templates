@@ -148,11 +148,10 @@ git branch
 git branch -r
 
 #创建并切换分支dev-v2
-git checkout -b 'dev-v2' 
+git checkout -b 'dev-v2'
 
 #创建远程分支
-git push origin 'dev-v2' 
-
+git push origin 'dev-v2'
 
 # 1.路由配置
 
@@ -170,8 +169,8 @@ views/404/index.vue
 在src根路径下创建router文件夹
 分别创建 router/index.ts、 router/routes.ts
 
-
 //router/index.ts
+
 ```
 //通过vue-router插件实现模板路由配置
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -195,6 +194,7 @@ export default router
 ```
 
 //router/routes.ts
+
 ```
 //对外暴露配置路由
 export const constantRoute = [
@@ -224,6 +224,7 @@ export const constantRoute = [
 
 4.在入口文件中注册路由插件
 main.ts中：
+
 ```
 //引入路由
 import router from './router'
@@ -233,21 +234,23 @@ app.use(router)
 ```
 
 5.在App跟组件中测试路由
- <!--路由测试-->
-    <router-view></router-view>
 
+ <!--路由测试-->
+
+    <router-view></router-view>
 
 ## login登录页面实现
 
 ## 状态管理使用pinia
+
 pnpm i pinia
 
 1.在src根目录下创建store文件夹
-分别创建store/index.ts  ---大仓库
-store/modules/user.ts   ----用户模块相关的小仓库
-
+分别创建store/index.ts ---大仓库
+store/modules/user.ts ----用户模块相关的小仓库
 
 store/index.ts
+
 ```
 //仓库大仓库
 import { createPinia } from 'pinia'
@@ -258,8 +261,4 @@ export default pinia
 
 ```
 
-
 ## login登录接口
-
-
-
